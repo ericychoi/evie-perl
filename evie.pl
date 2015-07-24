@@ -18,6 +18,10 @@ my %db_show = (
   q(진짜 사나이) => q(Real Men),
   q(진짜사나이) => q(Real Men),
   q(런닝맨) => q(Running Man),
+  q(집밥) => q(Home Meal Chef Baek),
+  q(냉장고) => q(Take Care of My Refrigerator),
+  q(개그) => q(Gag Concert),
+  q(1박) => q(2 Days & 1 Night),
 );
 
 get '/match' => sub {
