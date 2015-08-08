@@ -24,6 +24,7 @@ my %db_show = (
   q(1박) => q(2 Days & 1 Night),
   q(친구의) => q(Where is My Friend's Home),
   q(너의 목소리가) => q(I See Your Voice),
+  q(비정상) => q(Non-Summit),
 );
 
 get '/match' => sub {
