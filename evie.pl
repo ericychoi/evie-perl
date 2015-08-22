@@ -26,6 +26,7 @@ my %db_show = (
   q(너의 목소리가) => q(I See Your Voice),
   q(비정상) => q(Non-Summit),
   q(슈퍼맨이) => q(The Return of Superman),
+  q(학교) => q(Off to School),
 );
 
 get '/match' => sub {
