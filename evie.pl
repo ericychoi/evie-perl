@@ -2,9 +2,11 @@
 
 use Dancer2;
 use File::Basename;
+use DBI;
 use Data::Dumper qw(Dumper);
 
 use utf8;
+use Encode qw(decode);
 use strict;
 use warnings;
 
@@ -29,12 +31,24 @@ my %db_show = (
   q(학교) => q(Off to School),
   q(지니어스) => q(The Genius),
 );
+my $dbfile = 'titles.db';
 
 get '/match' => sub {
   my $input = params->{f};
   print "got " . $input. "\n" if DEBUG();
 
   my $result = {};
+
+  # add more from db on demand
+  my $dbh = DBI->connect("dbi:SQLite:dbname=$dbfile","","");
+  map {
+    my $r = $_;
+    # sqlite gives me unicode
+    $db_show{ decode('utf-8', $r->{'key'}) } = $r->{'title'};
+  } @{ $dbh->selectall_arrayref('select key, title from titles',
+      { Slice => {} }
+    )
+  };
 
   for my $show (keys %db_show) {
     print "matching $show with $input\n" if DEBUG();

@@ -11,6 +11,11 @@ Evie in Perl
 % docker run -d --name my-evie -p 3000:3000 evie-perl
 ```
 
+# How to create db
+```sql
+CREATE TABLE titles (`key` TEXT PRIMARY KEY, `title` TEXT);
+```
+
 # Usage
 ```shell
 % curl -X GET evie:3000/match -d f="진짜사나이150510.mp4"
