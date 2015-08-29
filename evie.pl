@@ -10,7 +10,7 @@ use Encode qw(decode);
 use strict;
 use warnings;
 
-use constant DEBUG => 0;
+use constant DEBUG => 1;
 
 set serializer => 'JSON';
 
@@ -49,6 +49,8 @@ get '/match' => sub {
       { Slice => {} }
     )
   };
+
+  print "data map: " .Dumper(\%db_show). "\n" if DEBUG();
 
   for my $show (keys %db_show) {
     print "matching $show with $input\n" if DEBUG();
