@@ -1,5 +1,5 @@
 #!/bin/sh
 
 # TODO - test this
-scp titles.db evie:~
+scp data/titles.db evie:~/evie-perl/data/titles.db
 ssh evie "cd ~/evie-perl && git pull && bin/deploy"
