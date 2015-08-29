@@ -1,5 +1,6 @@
 #!/bin/sh
 
-# TODO - test this
+# TODO - test
+ssh evie "mkdir -p ~/evie-perl/data"
 scp data/titles.db evie:~/evie-perl/data/titles.db
 ssh evie "cd ~/evie-perl && git pull && bin/deploy"
